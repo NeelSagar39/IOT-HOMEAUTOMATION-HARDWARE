@@ -16,7 +16,7 @@ Here we are using ESP32 to communicate to the Heroku Server for sending the dist
 2. ESP32
 4. Servo Motor
 
-<img src="demo/car.jpeg" width="320"> 
+<img src="demo/car.jpeg" width="200"> 
 
 
 # 2. Model
