@@ -3,7 +3,7 @@ Since most of home automation ideas are with respect to appliances used inside t
 
 Link to for the dashboard: https://outsidehomeautomation.herokuapp.com/
 
-<img src="demo/dashboard.jpeg" width="580"> 
+<img src="demo/dashboard.jpeg" width="380"> 
 
 
 
@@ -16,7 +16,7 @@ Here we are using ESP32 to communicate to the Heroku Server for sending the dist
 2. ESP32
 4. Servo Motor
 
-<img src="demo/car.jpeg" width="200"> 
+<img src="demo/car.jpeg" width="480"> 
 
 
 # 2. Model
