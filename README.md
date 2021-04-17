@@ -29,37 +29,63 @@ We are using a ESP 32 to control to the control the angle of the panel. The serv
 2. Servo Motor
 3. Solar Panel
 
-<img src="demo/solar_frame.jpeg" width="480"> 
-<br>
-Architecture 
-<img src="demo/solar_arch.jpeg" width="480">
+## Module Architecture:
 
-# 3. Model
+<img src="demo/solar_arch.png" width="480">
 
-Description
+## Module Demo:
 
-## Sensors and Gadgets Used:
+<img src="demo/solar_frame.jpg" width="480">
 
-1. ABC
+# 3. Smart Door
 
-Image\
-
-# 4. Model
-
-Description
+Owner can open or close the door from anywhere over the internet by putting the password set on the Interface. The server then send a request to the esp-32 which then commands the stepper motor to turn off or on.
 
 ## Sensors and Gadgets Used:
 
-1. ABC
+1. ESP 32
+2. Servo Motor
 
-Image\
+## Module Architecture:
 
-# 5. Model
+<img src="demo/door.png" width="480">
 
-Description
+## Module Demo:
+
+<img src="demo/door1.png" width="480">
+
+# 4. Smart postbox
+
+Mailman is expected to press a button on the module and Esp-eye captures the image and sends it to the server and notification is sent to the owner and owner can then decide to open the mailbox or not.
 
 ## Sensors and Gadgets Used:
 
-1. ABC
+1. ESP32
+2. ESP Eye
+3. Servo motor
 
-Image\
+## Module Architecture:
+
+<img src="demo/post.png" width="480">
+
+## Module Demo:
+
+<img src="demo/post_demo.png" width="480">
+
+# 5. Smart garden system
+
+Implemented a example for detecting soil humidity and based on the soli status it will send the message to the server based on changing the soil condition. This code is designed in such a manner that whenever soil become dry it will send message to the server and once soil is perfectly wet then again esp32 will send the acknowledgement
+
+## Sensors and Gadgets Used:
+
+1. ESP 32
+2. Water pump
+3. Humidity sensor
+
+## Module Architecture:
+
+<img src="demo/garden.png" width="480">
+
+## Module Demo:
+
+<img src="demo/garden_demo.png" width="480">
