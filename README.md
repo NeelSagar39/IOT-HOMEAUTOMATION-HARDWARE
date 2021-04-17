@@ -43,12 +43,7 @@ We are using a ESP 32 to control to the control the angle of the panel. The serv
 
 ## Module Architecture:
 
-<<<<<<< HEAD
 <img src="demo/solar_arch.png" width="480">
-=======
-
-# 3. Model
->>>>>>> 67608ee6f7f41636542f3ec8fef60ed999e45ca8
 
 ## Module Demo:
 
