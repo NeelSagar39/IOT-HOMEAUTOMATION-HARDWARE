@@ -2,9 +2,16 @@
 
 Since most of home automation ideas are with respect to appliances used inside the house, we decided to automate processes outside home environment that usually require physical actions and are mundane.
 
-Link to for the dashboard: https://outsidehomeautomation.herokuapp.com/
+Link for the dashboard: https://outsidehomeautomation.herokuapp.com/
 
-<img src="demo/dashboard.jpeg" width="380">
+Link for the Video Demo: https://drive.google.com/file/d/109QdqRP9W6KkMKeIAtm1h2P-W1EGH25R/view?usp=sharing
+
+<img src="demo/dashboard.jpeg" width="380"> 
+
+## Service Oriented Architecture:
+<img src="demo/soa.jpeg" width="380"> 
+
+
 
 # 1. Smart Car Parking System
 
@@ -17,7 +24,12 @@ Here we are using ESP32 to communicate to the Heroku Server for sending the dist
 2. ESP32
 3. Servo Motor
 
-<img src="demo/car.jpeg" width="480">
+## Module Architecture:
+<img src="demo/carArch.jpeg" width="480"> 
+
+## Demo:
+<img src="demo/car.jpeg" width="480"> 
+
 
 # 2. Smart Solar Panel
 
@@ -31,7 +43,12 @@ We are using a ESP 32 to control to the control the angle of the panel. The serv
 
 ## Module Architecture:
 
+<<<<<<< HEAD
 <img src="demo/solar_arch.png" width="480">
+=======
+
+# 3. Model
+>>>>>>> 67608ee6f7f41636542f3ec8fef60ed999e45ca8
 
 ## Module Demo:
 
