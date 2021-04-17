@@ -11,8 +11,6 @@ Link for the Video Demo: https://drive.google.com/file/d/109QdqRP9W6KkMKeIAtm1h2
 ## Service Oriented Architecture:
 <img src="demo/soa.jpeg" width="380"> 
 
-## Demo of module:
-<img src="demo/dashboard.jpeg" width="380">
 
 
 # 1. Smart Car Parking System
@@ -31,8 +29,6 @@ Here we are using ESP32 to communicate to the Heroku Server for sending the dist
 
 ## Demo:
 <img src="demo/car.jpeg" width="480"> 
-=======
-<img src="demo/car.jpeg" width="480">
 
 
 # 2. Smart Solar Panel
