@@ -11,7 +11,7 @@ Link for the Video Demo: https://drive.google.com/file/d/109QdqRP9W6KkMKeIAtm1h2
 ## Service Oriented Architecture:
 <img src="demo/soa.jpeg" width="380"> 
 
-=======
+## Demo of module:
 <img src="demo/dashboard.jpeg" width="380">
 
 
