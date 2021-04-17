@@ -6,7 +6,6 @@ Link for the dashboard: https://outsidehomeautomation.herokuapp.com/
 
 Link for the Video Demo: https://drive.google.com/file/d/109QdqRP9W6KkMKeIAtm1h2P-W1EGH25R/view?usp=sharing
 
-<<<<<<< HEAD
 <img src="demo/dashboard.jpeg" width="380"> 
 
 ## Service Oriented Architecture:
@@ -14,7 +13,7 @@ Link for the Video Demo: https://drive.google.com/file/d/109QdqRP9W6KkMKeIAtm1h2
 
 =======
 <img src="demo/dashboard.jpeg" width="380">
->>>>>>> 4f592bfe44b9a3f9b4e49c1bc49289424180e051
+
 
 # 1. Smart Car Parking System
 
@@ -27,7 +26,6 @@ Here we are using ESP32 to communicate to the Heroku Server for sending the dist
 2. ESP32
 3. Servo Motor
 
-<<<<<<< HEAD
 ## Module Architecture:
 <img src="demo/carArch.jpeg" width="480"> 
 
@@ -35,7 +33,7 @@ Here we are using ESP32 to communicate to the Heroku Server for sending the dist
 <img src="demo/car.jpeg" width="480"> 
 =======
 <img src="demo/car.jpeg" width="480">
->>>>>>> 4f592bfe44b9a3f9b4e49c1bc49289424180e051
+
 
 # 2. Smart Solar Panel
 
@@ -51,6 +49,7 @@ We are using a ESP 32 to control to the control the angle of the panel. The serv
 <br>
 Architecture 
 <img src="demo/solar_arch.jpeg" width="480">
+
 
 # 3. Model
 
