@@ -1,13 +1,3 @@
-/*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-cam-post-image-photo-server/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-*/
   
 #include "WiFi.h"
 #include <HTTPClient.h>
@@ -18,9 +8,12 @@
 #include "esp_camera.h"
 #include <base64.h>
 
-const char* ssid = "your_ssid";
-const char* password = "your_pass";
-String serverName = "Server_address";   // REPLACE WITH YOUR Raspberry Pi IP ADDRESS
+const char* ssid = "HUAWEI-B535-B3DF";
+const char* password = "RM0N1DDGL92";
+String serverName = "http://192.168.8.125:8005/mailbox";   // REPLACE WITH YOUR Raspberry Pi IP ADDRESS
+//String serverName = "outsidehomeautomation.herokuapp.com";   // OR REPLACE WITH YOUR DOMAIN NAME
+
+//String serverPath = "/mailbox";     // The default serverPath should be upload.php
 
 const int serverPort = 8005;
 int first_time = 1;
@@ -90,12 +83,12 @@ void setup() {
 
   // init with high specs to pre-allocate larger buffers
   if(psramFound()){
-    config.frame_size = FRAMESIZE_QVGA;
-    config.jpeg_quality = 63;  //0-63 lower number means higher quality
+    config.frame_size = FRAMESIZE_CIF;
+    config.jpeg_quality = 10;  //0-63 lower number means higher quality
     config.fb_count = 2;
   } else {
-    config.frame_size = FRAMESIZE_QVGA;
-    config.jpeg_quality = 63;  //0-63 lower number means higher quality
+    config.frame_size = FRAMESIZE_CIF;
+    config.jpeg_quality = 12;  //0-63 lower number means higher quality
     config.fb_count = 1;
   }
   
@@ -106,21 +99,17 @@ void setup() {
     delay(1000);
     ESP.restart();
   }
-
-  //sendPhoto(); 
+sensor_t * s = esp_camera_sensor_get();
+s->set_vflip(s, 1);
+  sendPhoto(); 
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
-  if (first_time == 1) {
-    sendPhoto();
-    previousMillis = currentMillis;
-    first_time = 0;
-  }
 }
 
 String sendPhoto() {
- String getAll;
+  Serial.println("HELP3");
+  String getAll;
   String getBody;
 
   camera_fb_t * fb = NULL;
@@ -132,13 +121,16 @@ String sendPhoto() {
   }
   Serial.println("image captured");
   Serial.println("Connecting to server: " + serverName);
-  String encoded = base64::encode(fb->buf,fb->len);
+  String encoded = base64::encode(fb->buf,(fb->len-1));
   Serial.println(encoded);
   if(WiFi.status()== WL_CONNECTED){
     HTTPClient http;
     String serverPath = serverName + "?id="+encoded;
     http.begin(serverPath.c_str());
-    int httpResponseCode = http.GET();
+    http.addHeader("Content-Type", "text/plain");
+
+    int httpResponseCode = http.POST(encoded);
+    //int httpResponseCode = http.GET();
       if (httpResponseCode>0) {
         Serial.print("HTTP Response code: ");
         Serial.println(httpResponseCode);
@@ -151,67 +143,6 @@ String sendPhoto() {
       }
       // Free resources
       http.end();
-    }}
-///TRIAL CODE FOR SENDING IMAGE FILE INSTEAD BASE64 ENCODE
-//  if (client.connect(serverName.c_str(), serverPort)) {
-//    Serial.println("Connection successful!");    
-//    String head = "--RandomNerdTutorials\r\nContent-Disposition: form-data; name=\"imageFile\"; filename=\"esp32-cam.jpeg\"\r\nContent-Type: image/jpeg\r\n\r\n";
-//    String tail = "\r\n--RandomNerdTutorials--\r\n";
-//
-//    uint32_t imageLen = fb->len;
-//    uint32_t extraLen = head.length() + tail.length();
-//    uint32_t totalLen = imageLen + extraLen;
-//  
-//    client.println("POST " + serverPath + " HTTP/1.1");
-//    client.println("Host: " + serverName);
-//    client.println("Content-Length: " + String(totalLen));
-//    client.println("Content-Type: multipart/form-data; boundary=RandomNerdTutorials");
-//    client.println();
-//    client.print(head);
-//  
-//    uint8_t *fbBuf = fb->buf;
-//    size_t fbLen = fb->len;
-////    for (size_t n=0; n<fbLen; n=n+1024) {
-////      if (n+1024 < fbLen) {
-////        client.write(fbBuf, 1024);
-////        fbBuf += 1024;
-////      }
-////      else if (fbLen%1024>0) {
-////        size_t remainder = fbLen%1024;
-////        client.write(fbBuf, remainder);
-////      }
-////    }   
-// client.write(fbBuf,imageLen);
-//    client.print(tail);
-//    
-//    esp_camera_fb_return(fb);
-//    
-//    int timoutTimer = 10000;
-//    long startTimer = millis();
-//    boolean state = false;
-//    
-//    while ((startTimer + timoutTimer) > millis()) {
-//      Serial.print(".");
-//      delay(100);      
-//      while (client.available()) {
-//        char c = client.read();
-//        if (c == '\n') {
-//          if (getAll.length()==0) { state=true; }
-//          getAll = "";
-//        }
-//        else if (c != '\r') { getAll += String(c); }
-//        if (state==true) { getBody += String(c); }
-//        startTimer = millis();
-//      }
-//      if (getBody.length()>0) { break; }
-//    }
-//    Serial.println();
-//    client.stop();
-//    Serial.println(getBody);
-//  }
-//  else {
-//    getBody = "Connection to " + serverName +  " failed.";
-//    Serial.println(getBody);
-//  }
-//  return getBody;
-//}
+    }
+    esp_camera_fb_return(fb);
+}
